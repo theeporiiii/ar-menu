@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AR Menu Demo</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Restaurant AR Menu</h1>
+
+<div class="card">
+<h2>Chicken Biriyani</h2>
+
+<model-viewer 
+src="models/Bowl of rice (1).glb"
+ar
+ar-modes="webxr scene-viewer quick-look"
+camera-controls
+auto-rotate
+style="width:300px;height:300px;">
+</model-viewer>
+
+</div>
+<div class="card">
+<h2>Burger</h2>
+
+<model-viewer 
+src="models/Cheeseburger (1).glb"
+ar
+ar-modes="webxr scene-viewer quick-look"
+camera-controls
+auto-rotate
+style="width:300px;height:300px;">
+</model-viewer>
+
+</div>
+<div class="card">
+<h2>Pizza</h2>
+
+<model-viewer 
+src="models/Pizza.glb"
+ar
+ar-modes="webxr scene-viewer quick-look"
+camera-controls
+auto-rotate
+style="width:300px;height:300px;">
+</model-viewer>
+
+</div>
+<footer>
+3D models from Poly Pizza (CC-BY)
+</footer>
+
+</body>
+</html>

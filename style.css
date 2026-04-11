@@ -1,14 +1,168 @@
 body{
-font-family: Arial;
+margin:0;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background:#0f172a;
+color:white;
+min-height:100vh;
+}
+
+header{
 text-align:center;
-background:#f5f5f5;
+padding:25px;
+background:#020617;
+box-shadow:0 5px 20px rgba(0,0,0,0.5);
+}
+
+header h1{
+margin:0;
+font-size:28px;
+letter-spacing:1px;
+color:#f59e0b;
+}
+
+header p{
+opacity:0.8;
+}
+
+.menu{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+padding:25px;
 }
 
 .card{
-background:white;
-padding:20px;
-margin:20px auto;
-width:320px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
+background:#111827;
+border-radius:16px;
+padding:15px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,0.6);
+transition:0.3s ease;
+border:1px solid rgba(255,255,255,0.05);
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 20px 40px rgba(0,0,0,0.8);
+border:1px solid #f59e0b;
+}
+
+.card h2{
+margin:10px 0 5px;
+color:white;
+}
+
+.price{
+color:#f59e0b;
+font-weight:bold;
+font-size:18px;
+margin-bottom:10px;
+}
+
+model-viewer{
+width:100%;
+height:260px;
+background:#020617;
+border-radius:12px;
+}
+
+.hint{
+font-size:12px;
+color:#9ca3af;
+margin-top:10px;
+}
+
+
+.ar-btn{
+margin-top:10px;
+background:#f59e0b;
+color:black;
+border:none;
+padding:10px 16px;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 0 15px rgba(245,158,11,0.4);
+}
+
+.ar-btn:hover{
+background:#fbbf24;
+transform:scale(1.05);
+box-shadow:0 0 25px rgba(245,158,11,0.7);
+}
+.logo{
+font-size:40px;
+margin-bottom:5px;
+}
+
+header h1{
+margin:5px 0;
+font-size:30px;
+letter-spacing:1px;
+color:#f59e0b;
+}
+
+header p{
+font-size:14px;
+color:#9ca3af;
+}
+
+.tabs{
+display:flex;
+justify-content:center;
+gap:10px;
+padding:15px;
+}
+
+.tab{
+background:#111827;
+color:white;
+border:1px solid #f59e0b;
+padding:8px 14px;
+border-radius:20px;
+cursor:pointer;
+}
+
+.tab.active{
+background:#f59e0b;
+color:black;
+}
+
+.order-btn{
+margin-top:8px;
+background:transparent;
+color:#f59e0b;
+border:1px solid #f59e0b;
+padding:8px 16px;
+border-radius:8px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.order-btn:hover{
+background:#f59e0b;
+color:black;
+}
+
+.viewer{
+position:relative;
+}
+
+.loader{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:40px;
+height:40px;
+border:4px solid #333;
+border-top:4px solid #f59e0b;
+border-radius:50%;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+0%{transform:translate(-50%,-50%) rotate(0deg);}
+100%{transform:translate(-50%,-50%) rotate(360deg);}
 }

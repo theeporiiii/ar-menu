@@ -1,57 +1,167 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AR Menu Demo</title>
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-  <link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AR Menu</title>
+
+<script type="module"
+src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+</script>
+
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h1>Restaurant AR Menu</h1>
+<header>
+<div class="logo">🍽️</div>
+<h1>Spice Garden</h1>
+<p>Scan & View Dishes in Augmented Reality</p>
+</header>
 
-<div class="card">
-<h2>Chicken Biriyani</h2>
+
+<div class="tabs">
+<button class="tab active">All</button>
+<button class="tab">Starter</button>
+<button class="tab">Main</button>
+<button class="tab">Drinks</button>
+</div>
+
+<div class="menu" id="menu"></div>
+
+
+  
+
+<script>
+
+const tabs = document.querySelectorAll(".tab")
+
+tabs.forEach(tab=>{
+tab.addEventListener("click",()=>{
+
+tabs.forEach(t=>t.classList.remove("active"))
+tab.classList.add("active")
+
+const category = tab.textContent.trim()
+const cards = document.querySelectorAll(".card")
+
+cards.forEach(card=>{
+const cardCategory = card.getAttribute("data-category")
+
+if(category === "All"){
+card.style.display = "block"
+}
+else if(cardCategory === category){
+card.style.display = "block"
+}
+else{
+card.style.display = "none"
+}
+
+})
+
+})
+})
+
+
+
+
+
+
+
+
+
+
+
+const dishes = [
+{
+name:"Fried Rice",
+price:"₹220",
+model:"models/Bowl of rice (1).glb",
+category:"Main"
+},
+{
+name:"Cheeseburger",
+price:"₹180",
+model:"models/Cheeseburger (1).glb",
+category:"Starter"
+},
+{
+name:"banchan",
+price:"₹250",
+model:"models/banchan2.glb",
+category:"Main"
+},
+{
+name:"Hot Dog",
+price:"₹50",
+model:"models/Hot dog.glb",
+category:"Main"
+},
+{
+name:"Burrito",
+price:"₹150",
+model:"models/Burrito.glb",
+category:"Main"
+
+
+},
+{
+name:"Beer",
+price:"₹200",
+model:"models/Beer.glb",
+category:"Drinks",
+
+},
+{
+name:"Juice",
+price:"₹100",
+model:"models/Soda.glb",
+category:"Drinks",
+
+},
+{
+name:"Sushi",
+price:"₹300",
+model:"models/Sushi.glb",
+category:"Starter",
+
+},
+]
+
+function createDish(dish){
+return `
+<div class="card" data-category="${dish.category}">
+<h2>${dish.name}</h2>
+<p class="price">${dish.price}</p>
 
 <model-viewer 
-src="models/Bowl of rice (1).glb"
+src="${dish.model}"
 ar
-ar-modes="webxr scene-viewer quick-look"
-camera-controls
-auto-rotate
-style="width:300px;height:300px;">
+camera-controls>
 </model-viewer>
 
-</div>
-<div class="card">
-<h2>Burger</h2>
-
-<model-viewer 
-src="models/Cheeseburger (1).glb"
-ar
-ar-modes="webxr scene-viewer quick-look"
-camera-controls
-auto-rotate
-style="width:300px;height:300px;">
-</model-viewer>
+<p class="hint">Place this dish on your table</p>
+<button class="ar-btn">View in AR</button>
+<button class="order-btn">Order Now</button>
 
 </div>
-<div class="card">
-<h2>Pizza</h2>
+`
+}
 
-<model-viewer 
-src="models/Pizza.glb"
-ar
-ar-modes="webxr scene-viewer quick-look"
-camera-controls
-auto-rotate
-style="width:300px;height:300px;">
-</model-viewer>
+const menu=document.getElementById("menu")
 
-</div>
-<footer>
-3D models from Poly Pizza (CC-BY)
-</footer>
+dishes.forEach(dish=>{
+menu.innerHTML+=createDish(dish)
+})
+
+
+
+
+
+</script>
+
+
 
 </body>
 </html>
